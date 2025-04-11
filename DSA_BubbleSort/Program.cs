@@ -1,34 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// See https://aka.ms/new-console-template for more information
+int[] array = { 2, 7, 5, 19, 3, 5, 8,0 };
 
-namespace DSA_BubbleSort
+int arrayLength = array.Length;
+
+for(int i = 0;i<arrayLength-1;i++)
 {
-    internal class Program
+    for(int j = arrayLength - 1;j>i;j-- )
     {
-        static void Main(string[] args)
+        if (array[j] < array[j-1])
         {
-            int[] array = { 2, 3, 5, 1, 7, 4, 7, 9, 0, 2, 3, 4, 5, 6, };
-
-            for (int i = 0; i < array.Length; i++) {
-                for (int j = 0; j < array.Length-1-i; j++)
-                {
-                    if (array[j] > array[j+1])
-                    {
-                        int temp = array[j];
-                        array[j] = array[j+1];
-                        array[j+1] = temp;
-                    }
-                }            
-            }
-
-            foreach (var item in array)
-            {
-                Console.WriteLine(item);
-            }
-            Console.ReadLine();
+            int temp= array[j];
+            array[j] = array[j-1];
+            array[j-1]= temp;
         }
     }
+}
+
+foreach (var item in array)
+{
+    Console.WriteLine(item);
 }
